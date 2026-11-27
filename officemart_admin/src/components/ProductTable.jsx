@@ -1,6 +1,11 @@
 import ProductRow from './ProductRow.jsx';
 
-export default function ProductTable({ products = [], onEdit, onDelete }) {
+export default function ProductTable({
+  products = [],
+  categoryMap = {},
+  onEdit,
+  onDelete,
+}) {
   return (
     <table className="product-table" data-testid="product-table">
       <thead>
@@ -19,6 +24,7 @@ export default function ProductTable({ products = [], onEdit, onDelete }) {
           <ProductRow
             key={product.id}
             product={product}
+            categoryMap={categoryMap}
             onEdit={onEdit}
             onDelete={onDelete}
           />

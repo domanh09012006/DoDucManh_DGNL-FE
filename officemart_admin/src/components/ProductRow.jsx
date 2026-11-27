@@ -1,8 +1,7 @@
-import { categoryNames } from '../data/sample.js';
 import { formatPrice } from '../utils/productUtils.js';
 
-export default function ProductRow({ product, onEdit, onDelete }) {
-  const categoryLabel = categoryNames[product.category] || product.category;
+export default function ProductRow({ product, categoryMap = {}, onEdit, onDelete }) {
+  const categoryLabel = categoryMap[product.category] || product.category;
   const isOutOfStock = product.stock === 0;
   const isActive = product.status === 'active';
 
